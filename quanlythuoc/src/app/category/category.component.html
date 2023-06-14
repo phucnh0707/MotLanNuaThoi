@@ -1,0 +1,125 @@
+<div class="container">
+  <app-navbar-admin></app-navbar-admin>
+  <div class="jumbotron">
+    <h2 class="display-4">Admin Quản lý Nhà thuốc</h2>
+    <hr class="my-4" />
+  </div>
+  <a
+    class="btn btn-primary"
+    data-toggle="modal"
+    (click)="clickAddCategory()"
+    href="#modal-id"
+    >Thêm danh mục</a
+  >
+  <a class="btn btn-danger">Đăng xuất</a>
+  <div class="modal fade" id="modal-id">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-hidden="true"
+          >
+            &times;
+          </button>
+          <h4 class="modal-title">Form Quản lý Danh Mục</h4>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="formValue">
+            <!-- <legend>Form title</legend> -->
+
+            <div class="form-group">
+              <label for="">Title</label>
+              <input
+                type="text"
+                formControlName="title"
+                class="form-control"
+                id=""
+                placeholder="..."
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="">Note</label>
+              <input
+                type="text"
+                formControlName="note"
+                class="form-control"
+                id=""
+                placeholder="..."
+              />
+            </div>
+            <div class="form-group">
+              <label for="">Image Url</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="image"
+                id=""
+                placeholder="..."
+              />
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">
+            Đóng
+          </button>
+          <button
+            type="button"
+            *ngIf="showAdd"
+            class="btn btn-primary"
+            (click)="addCategory()"
+          >
+            Thêm
+          </button>
+          <button
+            type="button"
+            *ngIf="showbtn"
+            class="btn btn-success"
+            (click)="updateCategory()"
+          >
+            Cập nhật
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <table class="table table-hover" width="100%">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Note</th>
+        <th>Image</th>
+
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of allCategoryData">
+        <td>{{ data.id }}</td>
+        <td>{{ data.title }}</td>
+        <td>{{ data.note }}</td>
+
+        <td><img src="{{ data.image }}" height="100" width="100" /></td>
+
+        <td>
+          <button
+            class="btn btn-warning"
+            data-toggle="modal"
+            (click)="editCate(data)"
+            href="#modal-id"
+          >
+            Edit
+          </button>
+          <button class="btn btn-delete" (click)="deleteCate(data)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

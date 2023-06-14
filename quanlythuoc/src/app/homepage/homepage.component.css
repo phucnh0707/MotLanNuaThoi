@@ -1,0 +1,23 @@
+h5.title-vattu {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+.card img {
+    height: 165px;
+}
+.col-md-3.box-post {
+    border: 1px solid #ddd;
+    margin: 0;
+    padding: 0;
+}
+.col-md-3.box-post p {
+   
+    padding: 2px;
+}
+h5.tieude {
+    padding: 2px;
+    /* text-align: center; */
+    font-size: 17px;
+    font-weight: bold;
+}

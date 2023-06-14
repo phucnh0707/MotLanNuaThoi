@@ -1,0 +1,26 @@
+<div class="container">
+  <app-navbar></app-navbar>
+  <h5 class="title-vattu">Danh mục: {{ this.id }}</h5>
+  <div class="card-group">
+    <div class="card" *ngFor="let data of ProductByCate">
+      <img
+        src="{{ data.image }}"
+        class="card-img-top"
+        width="100%"
+        alt="{{ data.title }}"
+      />
+      <div class="card-body">
+        <h5 class="card-title tieude">{{ data.title }}</h5>
+        <p class="card-text">Ghi chú :{{ data.note }}</p>
+        <p class="card-text">
+          Giá :{{ data.price | currency: "VND":"symbol" }}
+        </p>
+        <a routerLink="/detail/{{ data.id }}">Chi tiết</a>
+
+        <button type="button" class="btn btn-danger" (click)="AddToCart(data)">
+          Thêm giỏ hàng
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

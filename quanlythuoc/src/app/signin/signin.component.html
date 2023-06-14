@@ -1,0 +1,44 @@
+<div class="container">
+  <app-navbar></app-navbar>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">Đăng nhập khách hàng</h2>
+
+          <form
+            (ngSubmit)="logIn()"
+            [formGroup]="loginForm"
+            autocomplete="off"
+            action=""
+            method="POST"
+          >
+            <div class="form-group">
+              <label for="">Email</label>
+              <input
+                type="email"
+                formControlName="email"
+                class="form-control"
+                id=""
+                placeholder="..."
+              />
+            </div>
+            <div class="form-group">
+              <label for="">Mật khẩu</label>
+              <input
+                type="password"
+                formControlName="password"
+                class="form-control"
+                id=""
+                placeholder="..."
+              />
+            </div>
+
+            <button type="submit" class="btn btn-primary">Login</button>
+          </form>
+          <a routerLink="/signup">New User ? Click đăng ký user mới</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
